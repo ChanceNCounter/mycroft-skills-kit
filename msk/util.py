@@ -71,7 +71,7 @@ def ask_for_github_credentials(use_token=False) -> Github:
             password = None
         else:
             username = input('Username: ')
-            password = getpass('Password: ')
+            password = getpass('Password: ').encode('unicode_escape')
         github = Github(username, password)
         try:
             _ = github.get_user().login
